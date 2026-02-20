@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Borja · UI/UX student</title>
+    <!-- Font Awesome for icons (optional but clean) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #faf9fc;
+            color: #1e1b2b;
+            line-height: 1.5;
+        }
+
+        /* container */
+        .wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* navigation — matches the reference layout */
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0 16px;
+            border-bottom: 1px solid #e3dff2;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            color: #2b2738;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+            color: #3e3a4e;
+        }
+
+        .nav-links span {
+            cursor: default;
+            transition: color 0.2s;
+        }
+
+        .nav-links span:hover {
+            color: #7c5cf0;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .let-work {
+            background-color: #7c5cf0;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: default;
+            letter-spacing: 0.3px;
+        }
+
+        /* main intro section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 0 40px;
+            gap: 40px;
+        }
+
+        .hero-left {
+            flex: 1 1 300px;
+        }
+
+        .hero-left h5 {
+            color: #7c5cf0;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .hero-left h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1e1b2b;
+        }
+
+        .hero-left p {
+            font-size: 1.1rem;
+            color: #4c485c;
+            max-width: 550px;
+            margin-bottom: 32px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            border: none;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            cursor: default;
+            border: 1px solid #e0d9f0;
+        }
+
+        .btn-primary {
+            background: #1e1b2b;
+            color: white;
+            border: none;
+            box-shadow: 0 8px 18px rgba(30,27,43,0.15);
+        }
+
+        /* tech stack chips */
+        .tech-strip {
+            background: #f0edf8;
+            border-radius: 60px;
+            padding: 16px 28px;
+            margin: 30px 0 20px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            align-items: center;
+            font-weight: 600;
+            color: #2b2738;
+        }
+
+        .tech-strip span {
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .tech-strip i {
+            margin-right: 6px;
+            color: #7c5cf0;
+        }
+
+        /* about section (split) */
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin: 70px 0 50px;
+            align-items: center;
+        }
+
+        .about-left {
+            flex: 1 1 280px;
+        }
+
+        .about-left h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .about-left h3 {
+            font-weight: 400;
+            color: #5f5b70;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .about-right {
+            flex: 2 1 400px;
+            background: #ffffff;
+            padding: 32px 40px;
+            border-radius: 32px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.02);
+            border: 1px solid #edeaf5;
+            font-size: 1.1rem;
+            color: #353146;
+            line-height: 1.6;
+        }
+
+        /* services cards */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin: 60px 0 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 30px;
+            padding: 32px 28px;
+            border: 1px solid #eeebf5;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 20px 30px -10px rgba(124,92,240,0.1);
+            border-color: #cdc0f5;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            color: #514d63;
+        }
+
+        /* projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0 50px;
+        }
+
+        .project-item {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid #e7e2f0;
+        }
+
+        .project-item h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .project-item p {
+            color: #49455b;
+            margin-bottom: 25px;
+        }
+
+        .project-link {
+            color: #7c5cf0;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #d3c6fd;
+            padding-bottom: 2px;
+            cursor: default;
+        }
+
+        /* contact & footer */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: #1e1b2b;
+            color: white;
+            border-radius: 50px 50px 30px 30px;
+            padding: 50px 50px 40px;
+            margin: 80px 0 30px;
+        }
+
+        .contact-info {
+            flex: 2;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-detail i {
+            color: #b19dfa;
+            width: 30px;
+        }
+
+        .footer-links {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+        }
+
+        .footer-col p {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #b6a9e8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+            cursor: default;
+            color: #dbd4f5;
+        }
+
+        .footer-col li:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 25px 0 20px;
+            color: #6f6990;
+            border-top: 1px solid #e3daf0;
+            margin-top: 20px;
+        }
+
+        /* extra micro-interactions (javascript will enhance) */
+        .btn, .nav-links span, .let-work, .project-link {
+            cursor: default; /* keep static feel, but we add click alert via JS */
+        }
+
+        /* responsive touches */
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- header / navigation (exactly from reference) -->
+        <div class="navbar">
+            <div class="logo">CHRISTIAN BORJA</div>
+            <div class="nav-links">
+                <span>HOME</span>
+                <span>ABOUT ME</span>
+                <span>SERVICES</span>
+                <span>PROJECTS</span>
+                <span>GET IN TOUCH</span>
+            </div>
+            <div class="nav-right">
+                <span style="font-weight: 500; color:#3e3a4e;">LET'S WORK</span>
+                <span class="let-work">LET'S WORK</span>
+            </div>
+        </div>
+
+        <!-- hero section: Hello I'm a UI/UX DESIGNER -->
+        <div class="hero">
+            <div class="hero-left">
+                <h5>👋 Hello! I'm a</h5>
+                <h1>UI/UX DESIGNER</h1>
+                <p>I bring ideas to life through thoughtful UI/UX design, blending beauty and function to create immersive digital journeys that resonate with users.</p>
+                <div class="btn-group">
+                    <span class="btn btn-primary">RESUME</span>
+                    <span class="btn">LET'S WORK</span>
+                </div>
+            </div>
+            <!-- right side could be empty or decorative; but we add the "MY TECHNOLOGIES" strip here as in reference -->
+            <div style="flex: 0.8; min-width: 200px;">
+                <div class="tech-strip">
+                    <span><i class="fab fa-adobe"></i> Xd</span>
+                    <span><i class="fas fa-paint-brush"></i> Ps</span>
+                    <span><i class="fas fa-vector-square"></i> Ai</span>
+                    <span><i class="fab fa-css3-alt"></i> CSS</span>
+                </div>
+                <!-- small extra: the reference shows technologies exactly like that -->
+            </div>
+        </div>
+
+        <!-- about me section (split) -->
+        <div class="about-grid">
+            <div class="about-left">
+                <h2>ABOUT ME</h2>
+                <h3>Hello! I'm a <br>UI/UX DESIGNER</h3>
+            </div>
+            <div class="about-right">
+                <p>I am a passionate UI/UX Designer focused on creating intuitive, user-centered digital experiences. I enjoy turning complex ideas into clean, functional, and visually engaging designs. With a strong eye for detail and usability, I design interfaces that are both aesthetically pleasing and easy to use. I value user research, thoughtful design systems, and continuous improvement. My goal is to create meaningful products that solve real problems while delivering a smooth and enjoyable user experience.</p>
+            </div>
+        </div>
+
+        <!-- MY DESIGN SERVICES -->
+        <h2 class="section-title">MY DESIGN SERVICES</h2>
+        <p style="color:#4b4563; margin-bottom: 20px;">I offer a comprehensive range of design services to help bring your ideas to life.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>UI/UX DESIGN</h3>
+                <p>Creating intuitive and engaging user experiences with modern design principles and user-centered approaches.</p>
+            </div>
+            <div class="service-card">
+                <h3>GRAPHIC DESIGN</h3>
+                <p>Delivering creative graphic solutions for branding, marketing, and visual communication needs.</p>
+            </div>
+            <div class="service-card">
+                <h3>APP DESIGN</h3>
+                <p>Crafting beautiful mobile applications with seamless interactions and delightful user interfaces.</p>
+            </div>
+        </div>
+
+        <!-- RECENT PROJECTS section (exactly as reference) -->
+        <h2 class="section-title">RECENT PROJECTS</h2>
+        <p style="color:#4b4563;">Exploring ideas through thoughtful design, clean interfaces, and meaningful user experiences.</p>
+
+        <div class="projects-grid">
+            <!-- Digital Innovators card -->
+            <div class="project-item">
+                <h2>Digital Innovators</h2>
+                <p>This portfolio was created by me and this is my interpretation from laboratory exam. The portfolio is curated collection of projects showcasing creativity, usability, and thoughtful design solutions.</p>
+                <span class="project-link" data-project="innovators">[VIEW THIS PROJECT]</span>
+            </div>
+            <!-- E-Learning Prototype card -->
+            <div class="project-item">
+                <h2>E-Learning Prototype</h2>
+                <p>This e-learning prototype an initial paper-based prototype created to visualize the e-learning system and improve usability.</p>
+                <span class="project-link" data-project="elearn">[VIEW THIS PROJECT]</span>
+            </div>
+        </div>
+
+        <!-- GET IN TOUCH + footer area (merged as in reference) -->
+        <div class="contact-row">
+            <div class="contact-info">
+                <h2>GET IN TOUCH</h2>
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <span>christian.borja@cvsu.edu.ph</span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>(+63) 932-7217-290</span>
+                </div>
+                <!-- tiny spacer -->
+                <div style="margin-top: 40px;"></div>
+                <!-- repeated SERVICES / COMPANY lists to match reference -->
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <p>SERVICES</p>
+                    <ul>
+                        <li>UI/UX Design</li>
+                        <li>Graphic Design</li>
+                        <li>App Design</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p>COMPANY</p>
+                    <ul>
+                        <li>ABOUT</li>
+                        <li>PROJECT</li>
+                        <li>SERVICES</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- tiny copyright / footer note (optional) -->
+        <div class="copyright">
+            © Christian Borja — student portfolio interpretation
+        </div>
+    </div>
+
+    <!-- simple JavaScript to add minimal interaction (popup / console) based on clicks – like "view project" -->
+    <script>
+        (function() {
+            // make links feel interactive (non-intrusive)
+            const projectLinks = document.querySelectorAll('.project-link');
+            const navSpans = document.querySelectorAll('.nav-links span, .let-work, .btn, .footer-col li');
+            
+            // for project links: show an alert with the project name (student-friendly)
+            projectLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const project = this.getAttribute('data-project') === 'innovators' ? 'Digital Innovators' : 'E-Learning Prototype';
+                    alert(`🔍 Opening project: ${project} (simulated)\nIn a real portfolio this would link to the case study.`);
+                });
+            });
+
+            // nav items & buttons: show simple feedback (you're exploring a demo)
+            navSpans.forEach(item => {
+                item.addEventListener('click', function() {
+                    const text = this.innerText.trim();
+                    if (text) {
+                        // avoid too many alerts for every small thing — let's just console log for some.
+                        if (text.includes('RESUME') || text.includes('LET\'S WORK') || text.includes('HOME') || text.includes('ABOUT') || text.includes('SERVICES') || text.includes('PROJECTS') || text.includes('GET IN TOUCH')) {
+                            alert(`📌 Navigation demo: "${text}" clicked.\nThis is a static student portfolio built from the reference image.`);
+                        } else {
+                            console.log(`👆 clicked: ${text}`);
+                        }
+                    }
+                });
+            });
+
+            // add a tiny extra: highlight tech on click (just console)
+            const techItems = document.querySelectorAll('.tech-strip span');
+            techItems.forEach(t => {
+                t.addEventListener('click', () => {
+                    console.log(`tech clicked: ${t.innerText}`);
+                });
+            });
+        })();
+    </script>
+
+    <!-- also ensure email and phone feel clickable (but just mailto) -->
+    <script>
+        (function mailHandler() {
+            const emailSpan = document.querySelector('.contact-detail span');
+            if (emailSpan) {
+                emailSpan.addEventListener('click', () => {
+                    window.location.href = 'mailto:christian.borja@cvsu.edu.ph';
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

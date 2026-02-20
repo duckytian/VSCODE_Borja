@@ -1,0 +1,355 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #faf9fc;
+            color: #1e1b2b;
+            line-height: 1.5;
+        }
+
+        /* container */
+        .wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* navigation — matches the reference layout */
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0 16px;
+            border-bottom: 1px solid #e3dff2;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            color: #2b2738;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+            color: #3e3a4e;
+        }
+
+        .nav-links span {
+            cursor: default;
+            transition: color 0.2s;
+        }
+
+        .nav-links span:hover {
+            color: #7c5cf0;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .let-work {
+            background-color: #7c5cf0;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: default;
+            letter-spacing: 0.3px;
+        }
+
+        /* main intro section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 0 40px;
+            gap: 40px;
+        }
+
+        .hero-left {
+            flex: 1 1 300px;
+        }
+
+        .hero-left h5 {
+            color: #7c5cf0;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .hero-left h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1e1b2b;
+        }
+
+        .hero-left p {
+            font-size: 1.1rem;
+            color: #4c485c;
+            max-width: 550px;
+            margin-bottom: 32px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            border: none;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            cursor: default;
+            border: 1px solid #e0d9f0;
+        }
+
+        .btn-primary {
+            background: #1e1b2b;
+            color: white;
+            border: none;
+            box-shadow: 0 8px 18px rgba(30,27,43,0.15);
+        }
+
+        /* tech stack chips */
+        .tech-strip {
+            background: #f0edf8;
+            border-radius: 60px;
+            padding: 16px 28px;
+            margin: 30px 0 20px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            align-items: center;
+            font-weight: 600;
+            color: #2b2738;
+        }
+
+        .tech-strip span {
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .tech-strip i {
+            margin-right: 6px;
+            color: #7c5cf0;
+        }
+
+        /* about section (split) */
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin: 70px 0 50px;
+            align-items: center;
+        }
+
+        .about-left {
+            flex: 1 1 280px;
+        }
+
+        .about-left h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .about-left h3 {
+            font-weight: 400;
+            color: #5f5b70;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .about-right {
+            flex: 2 1 400px;
+            background: #ffffff;
+            padding: 32px 40px;
+            border-radius: 32px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.02);
+            border: 1px solid #edeaf5;
+            font-size: 1.1rem;
+            color: #353146;
+            line-height: 1.6;
+        }
+
+        /* services cards */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin: 60px 0 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 30px;
+            padding: 32px 28px;
+            border: 1px solid #eeebf5;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 20px 30px -10px rgba(124,92,240,0.1);
+            border-color: #cdc0f5;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            color: #514d63;
+        }
+
+        /* projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0 50px;
+        }
+
+        .project-item {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid #e7e2f0;
+        }
+
+        .project-item h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .project-item p {
+            color: #49455b;
+            margin-bottom: 25px;
+        }
+
+        .project-link {
+            color: #7c5cf0;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #d3c6fd;
+            padding-bottom: 2px;
+            cursor: default;
+        }
+
+        /* contact & footer */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: #1e1b2b;
+            color: white;
+            border-radius: 50px 50px 30px 30px;
+            padding: 50px 50px 40px;
+            margin: 80px 0 30px;
+        }
+
+        .contact-info {
+            flex: 2;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-detail i {
+            color: #b19dfa;
+            width: 30px;
+        }
+
+        .footer-links {
+            flex: 1;
+            display: flex;
+            gap: 50px;
+        }
+
+        .footer-col p {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #b6a9e8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+            cursor: default;
+            color: #dbd4f5;
+        }
+
+        .footer-col li:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 25px 0 20px;
+            color: #6f6990;
+            border-top: 1px solid #e3daf0;
+            margin-top: 20px;
+        }
+
+        /* extra micro-interactions (javascript will enhance) */
+        .btn, .nav-links span, .let-work, .project-link {
+            cursor: default; /* keep static feel, but we add click alert via JS */
+        }
+
+        /* responsive touches */
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+        }
